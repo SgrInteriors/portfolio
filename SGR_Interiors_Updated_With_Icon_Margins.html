@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGR Interiors</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Section 1: Logo Section */
+    .logo-section {
+      width: 100%;
+      height: 400px;
+      background-image: url(./logo-transparent-png.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Section 2: Profile Section */
+    .profile-section {
+      text-align: center;
+      padding: 20px;
+      background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+    }
+    .profile-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .profile-section p {
+      font-size: 1.2rem;
+      margin: 5px 0;
+    }
+
+    /* Section 3: Icons Section */
+    .icons-section {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .icons-section a {
+      display: inline-block;
+      margin: 0 20px;
+      text-align: center;
+    }
+    .icons-section img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
+    .icons-section img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Section 4: About Us Section */
+    .about-section {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #f9f9f9;
+    }
+    .about-section h2 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+      color: #4d634e;
+    }
+    .about-section p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Section 5: Gallery Section */
+    .gallery-section {
+      padding: 30px;
+      background-color: #fff;
+      text-align: center;
+    }
+    .gallery-section h2 {
+      margin-bottom: 22px;
+      font-size: 2rem;
+      color: #4d634e;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 22px;
+      padding: 15px 0;
+    }
+    .gallery img {
+      height: 225px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+    .gallery img:focus {
+      transform: scale(1.3);
+      z-index: 10;
+      outline: none;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Section 6: Contact Us Section */
+    .contact-section {
+      text-align: center;
+      padding: 6px 4px;
+      background-color: #4d634e; /* Gallery text color */
+      color: white; /* All text in the Contact section white */
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .contact-section p {
+      margin: 1.5px 0;
+      font-size: 0.75rem;
+      line-height: 1.3;
+      color: white; /* Ensures all text is white */
+    }
+    .contact-section p.sgr {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: inline; /* Align text in the same line */
+      margin-top: 20px; /* Inline margin above SGR Interiors */
+      margin-bottom: 20px; /* Inline margin below SGR Interiors */
+    }
+    .contact-section p.design-matters {
+      font-size: 0.24rem; /* 20% of the size of SGR Interiors */
+      font-weight: normal; /* Removed bold */
+      margin-left: 10px;
+      display: inline; /* Align text in the same line */
+    }
+    .contact-section a {
+      text-decoration: none;
+      color: #ffcc00;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.7rem;
+    }
+    .contact-section a img {
+      width: 12px;
+      height: 12px;
+      margin-right: 2px;
+      vertical-align: middle;
+    }
+
+    /* Floating Contact Buttons */
+    .floating-contact-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: transparent;
+      color: white;
+      font-size: 1.2rem;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .floating-contact-button img {
+      width: 30px;
+      height: 30px;
+    }
+    .floating-contact-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Instagram Floating Button */
+    .floating-instagram-button {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: transparent;
+      color: white;
+      font-size: 1.2rem;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .floating-instagram-button img {
+      width: 30px;
+      height: 30px;
+    }
+    .floating-instagram-button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Save Contact Floating Button */
+    .floating-save-contact-button {
+      position: fixed;
+      bottom: 140px;
+      right: 20px;
+      background-color: transparent;
+      color: white;
+      font-size: 1.2rem;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .floating-save-contact-button img {
+      width: 30px;
+      height: 30px;
+    }
+    .floating-save-contact-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Section 1: Logo Section -->
+  <div class="logo-section"></div>
+
+  <!-- Section 2: Profile Section -->
+  <div class="profile-section">
+    <h1>Lokesh C P</h1>
+    <p>Interior Designer & Project Manager</p>
+    <p>Initiator</p>
+  </div>
+
+  <!-- Section 3: Icons Section -->
+  <div class="icons-section">
+    <a href="tel:+918088286640">
+      <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone">
+    </a>
+    <a href="mailto:sgrinteriors1424@gmail.com">
+      <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email">
+    </a>
+    <a href="https://maps.google.com/?q=Chunchgatta+Main+Rd,+Bengaluru">
+      <img src="https://img.icons8.com/ios-filled/50/000000/map-marker.png" alt="Location">
+    </a>
+  </div>
+
+  <!-- Section 4: About Us Section -->
+  <div class="about-section">
+    <h2>About Us</h2>
+    <p>I am Lokesh, an Interior Designer, Project Manager, and founder of SGR Interiors (Sri Guru Raghavendra Interiors) based in Bengaluru. With a passion for transforming spaces, I specialize in designing, executing, and coordinating projects to create functional, aesthetic, and personalized interiors tailored to your needs. Let’s bring your vision to life!</p>
+  </div>
+
+  <!-- Section 5: Gallery Section -->
+  <div class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="./r/01.png" alt="Image 1">
+      <img src="./r/02.png" alt="Image 2" tabindex="0">
+      <img src="./r/03.png" alt="Image 3">
+      <img src="./r/04.png" alt="Image 4">
+      <img src="./r/05.png" alt="Image 5">
+      <img src="./r/06.png" alt="Image 6">
+      <img src="./r/07.png" alt="Image 7">
+      <img src="./r/08.png" alt="Image 8">
+      <img src="./r/09.png" alt="Image 9">
+      <img src="./r/10.png" alt="Image 10">
+      <img src="./r/11.png" alt="Image 11">
+      <img src="./r/12.png" alt="Image 12">
+      <img src="./r/13.png" alt="Image 13">
+      <img src="./r/14.png" alt="Image 14">
+      <img src="./r/15.png" alt="Image 15">
+    </div>
+  </div>
+
+  <!-- Section 6: Contact Us Section -->
+  <div class="contact-section">  
+    <p class="sgr" style="margin: 5px,0,0,0;">SGR Interiors <span class="design-matters"><small style="font-size: 0.7rem; font-weight: normal;">Design Matters</small></span></p>  <br> 
+    <hr style="width: 45%; margin: 0,0,3px,0 auto;">
+    
+    <p>Chunchgatta Main Road, 7th Phase JP Nagar, Bengaluru - 560078</p>
+    <p>Phone: +91 8088286640</p>
+    <p>Email: sgrinteriors1424@gmail.com</p>
+  </div>
+
+  <!-- Floating Instagram Button -->
+  <a href="https://www.instagram.com/sgr.interiors/profilecard/?igsh=MTR1OHV2eTUyMTNiNQ==" class="floating-instagram-button">
+    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+  </a>
+
+  <!-- Floating Save Contact Button -->
+  <a href="tel:+918088286640" class="floating-save-contact-button">
+    <img src="https://img.icons8.com/ios-filled/50/000000/contact-card.png" alt="Save Contact">
+  </a>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/918088286640?text=Hello, I would like to inquire about your services." class="floating-contact-button">
+    <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="WhatsApp">
+  </a>
+</body>
+</html>
